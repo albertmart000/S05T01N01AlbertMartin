@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <th:block th:insert="~{fragments/head :: head}"></th:block>
+</head>
+<body>
+<div class="container">
+    <div th:insert="~{fragments/header :: div}"></div>
+    <div class="cloud-table-scroll">
+        <table class="table table-stripped ">
+            <thead>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Country</th>
+            <th>Type</th>
+            <th colspan="3"></th>
+            </thead>
+            <tbody>
+            <tr th:each="branchOfficeDTO: ${DATA_BranchOfficeDtoList}">
+                <td th:text="${branchOfficeDTO.branchOfficeId}"></td>
+                <td th:text="${branchOfficeDTO.name}"></td>
+                <td th:text="${branchOfficeDTO.country}"></td>
+                <td th:text="${branchOfficeDTO.type}"></td>
+                <td><a class="btn btn-outline-success"
+                       th:href="@{/GetBranchOffice/__${branchOfficeDTO.branchOfficeId}__}"
+                       role="button">Show</a></td>
+                <td><a class="btn btn-outline-primary"
+                       th:href="@{/UpdateBranchOffice/__${branchOfficeDTO.branchOfficeId}__}" role="button">Update</a></td>
+                <td><a class="btn btn-outline-danger"
+                       th:href="@{/DeleteBranchOffice/__${branchOfficeDTO.branchOfficeId}__}"
+                       role="button"
+                       onclick="return confirm('Confirm')">Delete</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <br> <a class="btn btn-outline-success" th:href="@{/NewBranchOffice}"
+            role="Button">Add New Branch Office</a>
+</div>
+</body>
+</html>

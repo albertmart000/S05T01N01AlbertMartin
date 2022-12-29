@@ -1,0 +1,13 @@
+@charset "ISO-8859-1";
+.cloud-table-scroll {
+    border: 1px solid #14a1ff;
+    width: 800px;
+    height: 375px;
+    overflow: auto;
+}
+.cloud-space {
+    margin: 10px;
+}
+.cloud-label {
+    min-width: 200px;
+}

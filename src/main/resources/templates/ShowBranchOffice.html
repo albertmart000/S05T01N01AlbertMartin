@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <th:block th:insert="~{fragments/head :: head}"></th:block>
+</head>
+<body>
+<div class="container" >
+    <div th:insert="~{fragments/header :: div}"></div>
+    <h3>Show</h3>
+    <br>
+    <form th:object="${DATA_BranchOfficeDtoForm}" method="get"
+          th:action="@{/GetAllBranchOffice}">
+        <input type="hidden" th:field="*{branchOfficeId}">
+        <div class="form-group">
+            <label class="cloud-label">Name</label>
+            <input type="text" th:field="*{name}" disabled>
+            <br>
+            <label class="cloud-label">Country</label>
+            <input type="text" th:field="*{country}" disabled>
+            <br>
+            <label class="cloud-label">Type</label>
+            <input type="text" th:field="*{type}" disabled>
+            <br>
+        </div>
+        <button type="submit" class="btn btn-outline-success">Return</button>
+    </form>
+</div>
+</body>
+</html>
